@@ -1,0 +1,52 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-stone-50: #f7f3ec;
+  --color-stone-100: #efe8dc;
+  --color-stone-200: #e3d9c8;
+  --color-stone-300: #cfc1aa;
+  --color-stone-500: #8c7f6c;
+  --color-stone-700: #5a5044;
+  --color-stone-900: #2c2620;
+  --color-ochre: #a8794a;
+
+  --font-serif: 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+html {
+  background: var(--color-stone-50);
+  color: var(--color-stone-900);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 300;
+}
+
+::selection {
+  background: var(--color-stone-300);
+  color: var(--color-stone-900);
+}
+
+/* Subtle marble-like grain over the whole page */
+.grain::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.55 0 0 0 0 0.5 0 0 0 0 0.42 0 0 0 0.12 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--color-stone-500);
+}
